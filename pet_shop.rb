@@ -24,27 +24,30 @@ end
 
 def pets_by_breed(shop, breed)
   pets_array = []
-  shop[:pets].each do |type|
-    if type[:breed] == breed
-    pets_array << type[:name]
+  shop[:pets].each do |pet|
+    if pet[:breed] == breed
+    pets_array << pet[:name]
     end
   end
   p pets_array
 end
-# def pets_by_breed(shop, breed)
-#   pet_group = []
-#   for pet in shop
-#     if shop[1][:breed] == breed
-#       pet_group << shop[1][:name]
+
+# def find_pet_by_name(shop, name)
+#   shop[:pets].each do |pet|
+#     if pet[:name] == name
+#       p pet[:name]
 #     end
 #   end
-#   return pet_group
 # end
-# #
-# pets_by_breed(@pet_shop, "British Shorthair")
 #
-# def find_pet_by_name(shop, name)
-#   if shop[:name] == name
-#     return name
+# def remove_pet_by_name(shop, name)
+#   shop[:pets].each do |pet|
+#     if pet[:name] == name
+#       pet[:name].delete
+#     end
 #   end
 # end
+
+def add_pet_to_stock(shop, new_pet)
+  shop[:pets] << new_pet
+end
