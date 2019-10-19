@@ -24,29 +24,31 @@ end
 
 def pets_by_breed(shop, breed)
   pets_array = []
-  shop[:pets].each do |pet|
-    if pet[:breed] == breed
-    pets_array << pet[:name]
+    for pet in shop[:pets]
+      if pet[:breed] == breed
+        pets_array << pet[:name]
+      end
     end
-  end
-  p pets_array
+    p pets_array
 end
 
 def find_pet_by_name(shop, name)
-  shop[:pets].each do |pet|
+  found_pet = nil
+  for pet in shop[:pets]
     if pet[:name] == name
-      return pet
+      found_pet = pet
+    end
+  end
+  return found_pet
+end
+
+def remove_pet_by_name(shop, name)
+  for pet in shop[:pets]
+    if pet[:name] == name
+      pet.clear # does work, but leaves behind an empty array?
     end
   end
 end
-
-# def remove_pet_by_name(shop, name)
-#   shop[:pets].each do |pet|
-#     if pet[:name] == name
-#       pet[:name].delete
-#     end
-#   end
-# end
 
 def add_pet_to_stock(shop, new_pet)
   shop[:pets] << new_pet
