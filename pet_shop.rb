@@ -80,20 +80,22 @@ end
 
 def sell_pet_to_customer(shop, pet, customer)
 
-  if customer_can_afford_pet(customer, pet) == true
+  if pet != nil
+
+    if customer_can_afford_pet(customer, pet) == true
 
       cash = pet[:price]
       remove_customer_cash(customer, cash)
 
-        add_or_remove_cash(shop, cash)
+      add_or_remove_cash(shop, cash)
 
-          add_pet_to_customer(customer, pet)
+      add_pet_to_customer(customer, pet)
 
-          name = pet[:name]
-            remove_pet_by_name(shop, name)
+      name = pet[:name]
+      remove_pet_by_name(shop, name)
 
-            num_of_pets = 1
-              increase_pets_sold(shop, num_of_pets)
+      num_of_pets = 1
+      increase_pets_sold(shop, num_of_pets)
+    end
   end
-
 end
