@@ -32,14 +32,14 @@ def pets_by_breed(shop, breed)
   p pets_array
 end
 
-# def find_pet_by_name(shop, name)
-#   shop[:pets].each do |pet|
-#     if pet[:name] == name
-#       p pet[:name]
-#     end
-#   end
-# end
-#
+def find_pet_by_name(shop, name)
+  shop[:pets].each do |pet|
+    if pet[:name] == name
+      return pet
+    end
+  end
+end
+
 # def remove_pet_by_name(shop, name)
 #   shop[:pets].each do |pet|
 #     if pet[:name] == name
