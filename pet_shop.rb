@@ -32,10 +32,10 @@ def pets_by_breed(shop, breed)
     p pets_array
 end
 
-def find_pet_by_name(shop, name)
+def find_pet_by_name(shop, pet_name)
   found_pet = nil
   for pet in shop[:pets]
-    if pet[:name] == name
+    if pet[:name] == pet_name
       found_pet = pet
     end
   end
@@ -80,7 +80,7 @@ end
 
 def sell_pet_to_customer(shop, pet, customer)
 
-  customer_can_afford_pet(customer, pet)
+  if customer_can_afford_pet(customer, pet) == true
 
       cash = pet[:price]
       remove_customer_cash(customer, cash)
@@ -91,7 +91,9 @@ def sell_pet_to_customer(shop, pet, customer)
 
           name = pet[:name]
             remove_pet_by_name(shop, name)
-            
+
             num_of_pets = 1
               increase_pets_sold(shop, num_of_pets)
+  end
+
 end
